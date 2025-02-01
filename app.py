@@ -5,7 +5,7 @@ from face_monitor.main import process_frame
 app = Flask(__name__)
 
 # Initialize webcam
-camera = cv2.VideoCapture(2)
+camera = cv2.VideoCapture(0)
 
 @app.route('/')
 def index():
@@ -15,7 +15,9 @@ def index():
 def generate_frames():
     while True:
         success, frame = camera.read()
+        # print(camera.read())
         if not success:
+            print('test')
             break
         else:
             # Process the frame (e.g., run face detection)
