@@ -7,7 +7,10 @@ emotion_pipeline = pipeline('audio-classification', model='superb/wav2vec2-base-
 
 # Audio recording parameters
 RATE = 16000
-DURATION = 2  # Record every 2 seconds
+# Duration = frequency on outputs
+DURATION = 2 
+
+#Threshold needs to be configured more accurately
 RMS_THRESHOLD = 0.002  # Threshold for detecting silence based on RMS
 
 print("\nRecording started. Press Ctrl+C to stop.\n")
@@ -22,10 +25,10 @@ try:
             # Reshape and flatten the audio data, make 1D
             audio_data = np.squeeze(audio_data)
 
-            # Calculate RMS (Root Mean Square) to detect coherent audio
+            # Calculate RMS (Root Mean Square) to detect coherent audio (more accurate method of audio detection)
             rms_value = np.sqrt(np.mean(np.square(audio_data)))
 
-            # # Check if RMS indicates significant audio presence
+            # # Check if RMS indicates significant audio presence, currently not working
             # if rms_value < RMS_THRESHOLD:
             #     print("No coherent audio detected.")
             #     continue
