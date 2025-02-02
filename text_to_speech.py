@@ -15,9 +15,6 @@ def transcribe_audio(file_path):
         generated_ids = model.generate(inputs["input_features"], attention_mask=inputs["attention_mask"])
 
     transcription = processor.batch_decode(generated_ids, skip_special_tokens=True)
-    
+
     return transcription[0]
 
-file_path = "delerium.wav"
-transcription = transcribe_audio(file_path)
-print("\nTranscription:\n", transcription)
