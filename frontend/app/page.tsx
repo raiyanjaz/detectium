@@ -4,46 +4,78 @@ import styles from "./page.module.css";
 
 export default function Home() {
   return (
-    <div className="container mt-5">
-      <h1 className="text-center mb-4">Welcome to Next.js + Flask Video Feed</h1>
+    <div className="mx-3 mt-3">
+      <h1 className="text-center mb-4">Patient Monitoring Dashboard</h1>
 
-      <div className="row">
-        {/* First Container (Video Feed) */}
-        <div className="col-md-6 mb-4">
-          <div className="p-4 border border-light rounded" style={{ borderColor: '#d3d3d3', height: '300px' }}>
-            <h3>Video Feed</h3>
-            <div className={styles.videoContainer} style={{ height: '100%' }}>
-              {/* Embed Flask video feed */}
-              <img
-                src="http://127.0.0.1:5000/video_feed"
-                alt="Video Feed"
-                style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '5px' }}
-              />
+      {/* Row 1 */}
+      <div className="d-flex flex-column flex-md-row m-3">
+        {/* Left Section - Patient Info */}
+        <div className="col-md-4 border p-3 me-3" style={{ borderColor: '#d3d3d3' }}>
+          <h4>Patient Info</h4>
+          <div className="d-flex flex-column flex-md-row align-items-start">
+            <img
+              src="/anonymous_patient_image.png"
+              alt="Patient Profile"
+              className="img-fluid rounded mb-3 mb-md-0"
+              style={{ maxWidth: '150px' }}
+            />
+            <div className="ms-md-3">
+              <p>Patient Name: ____________</p>
+              <p>Blood Type: ____________</p>
+              <p>Date of Birth: ____________</p>
+              <p>Pronouns: ____________</p>
             </div>
           </div>
-        </div>
 
-        {/* Second Container (Greyed Out) */}
-        <div className="col-md-6 mb-4">
-          <div className="p-4 border border-light rounded bg-light" style={{ borderColor: '#d3d3d3', height: '300px' }}>
-            <h3 className="text-muted">Future Container 1</h3>
+          <div className="d-flex flex-row mt-3">
+            <button className="btn btn-secondary me-2">Full Clinical Access</button>
+            <button className="btn btn-secondary me-2">Support Staff View</button>
           </div>
         </div>
 
-        {/* Third Container (Greyed Out) */}
-        <div className="col-md-6 mb-4">
-          <div className="p-4 border border-light rounded bg-light" style={{ borderColor: '#d3d3d3', height: '300px' }}>
-            <h3 className="text-muted">Future Container 2</h3>
-          </div>
-        </div>
-
-        {/* Fourth Container (Greyed Out) */}
-        <div className="col-md-6 mb-4">
-          <div className="p-4 border border-light rounded bg-light" style={{ borderColor: '#d3d3d3', height: '300px' }}>
-            <h3 className="text-muted">Future Container 3</h3>
+        {/* Right Section - Heartbeat Tracking */}
+        <div className="col-md-8 border p-3" style={{ borderColor: '#d3d3d3'}}>
+          <h4>Heartbeat Tracking</h4>
+          <div style={{ height: '200px', backgroundColor: '#f8f9fa' }}>
+            {/* Placeholder for Heartbeat Graph */}
+            <p className="text-center">[Heartbeat graph will be here]</p>
           </div>
         </div>
       </div>
+
+
+      {/* Row 2 */}
+      <div className="d-flex flex-column flex-md-row m-3">
+        {/* Bottom Left - Facial Expression Tracking */}
+        <div className="col-md-7 border p-3 me-md-3" style={{ borderColor: '#d3d3d3', height: '400px' }}>
+          <h4>Facial Expression Tracking</h4>
+          <div style={{ height: '100%', backgroundColor: '#f8f9fa', borderRadius: '5px', overflow: 'hidden', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+            {/* Embed the Flask video feed */}
+            <img
+              src="http://127.0.0.1:5000/video_feed"
+              alt="Video Feed"
+              style={{ width: '100%', height: 'auto', maxHeight: '100%', objectFit: 'contain', borderRadius: '5px' }}
+            />
+          </div>
+        </div>
+
+        {/* Bottom Right - Speech Pattern Tracking */}
+        <div className="col-md-5 border p-3" style={{ borderColor: '#d3d3d3', height: '400px' }}>
+          <h4>Speech Pattern Tracking</h4>
+          <div style={{ height: '100%', backgroundColor: '#f8f9fa', padding: '10px', overflowY: 'auto' }}>
+            <p>01/02/2025 - 20:08:11: Patient talks about trees - neutral</p>
+            <p>01/02/2025 - 20:08:12: Patient talks about beach - passive</p>
+            <p>01/02/2025 - 20:08:13: Patient reminisces about war - aggressive</p>
+            <p>01/02/2025 - 20:08:14: ...</p>
+            <p>01/02/2025 - 20:08:15: ...</p>
+
+            <div className="mt-3 text-danger">
+              <strong>Danger Alert:</strong> Patient mentioned war, violence, and crimes.
+            </div>
+          </div>
+        </div>
+      </div>
+
     </div>
   );
 }
