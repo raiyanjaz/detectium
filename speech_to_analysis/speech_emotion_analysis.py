@@ -34,4 +34,5 @@ def detect_emotions(audio_data):
         for result in results if result['score'] > 0.6
     ]
 
+    # Potentially change to neutral emotion then
     return filtered_emotions if filtered_emotions else {"message": "No emotions detected with confidence above 60%."}
