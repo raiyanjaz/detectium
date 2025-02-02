@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Real-Time Face Monitoring</title>
+  </head>
+  <body>
+    <h1>Real-Time Face Monitoring System</h1>
+    <img src="{{ url_for('video_feed') }}" width="640" height="480" />
+    <div id="data">
+      <h2>Heart Rate Data</h2>
+      <div class="data-box" id="bpm">BPM: N/A</div>
+      <div class="data-box" id="avg_bpm">Avg BPM: N/A</div>
+      <div class="data-box" id="finger_detected">Finger Detected: Yes</div>
+  </div>
+  <script>
+    // Function to fetch serial data from the backend and update the display
+    function fetchSerialData() {
+        fetch('/get_serial_data')
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('bpm').innerText = `BPM: ${data.bpm}`;
+                document.getElementById('avg_bpm').innerText = `Avg BPM: ${data.avg_bpm}`;
+                document.getElementById('finger_detected').innerText = `Finger Detected: ${data.finger_detected ? 'Yes' : 'No'}`;
+            });
+    }
+
+    // Fetch serial data every second (1000ms)
+    setInterval(fetchSerialData, 1000);
+</script>
+  </body>
+</html>
