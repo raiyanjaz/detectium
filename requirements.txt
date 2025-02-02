@@ -7,3 +7,4 @@ opencv_python_headless==4.10.0.84
 tf-keras
 tensorflow==2.18.0
 protobuf==4.25.3
+pyserial==3.5
