@@ -1,12 +1,16 @@
 from flask import Flask, render_template, Response, jsonify
 import cv2
 from face_monitor.main import process_frame
+import threading
+from app_utils import setup_serial
 from speech_to_analysis.speech_emotion_analysis import record_audio, detect_emotions
 
 app = Flask(__name__)
 
+
+
 # Initialize webcam
-camera = cv2.VideoCapture(2)
+camera = cv2.VideoCapture(0)
 
 @app.route('/')
 def index():
@@ -17,6 +21,7 @@ def generate_frames():
     while True:
         success, frame = camera.read()
         if not success:
+            print('test')
             break
         else:
             # Process the frame (e.g., run face detection)
@@ -34,9 +39,6 @@ def video_feed():
     # Video streaming route
     return Response(generate_frames(), mimetype='multipart/x-mixed-replace; boundary=frame')
 
-if __name__ == '__main__':
-    app.run(debug=True)
-
 @app.route('/detect_emotion', methods=['GET'])
 def detect_emotion_route():
     """
@@ -46,3 +48,17 @@ def detect_emotion_route():
     audio_data = record_audio()
     emotions = detect_emotions(audio_data)
     return jsonify(emotions)
+
+# Start the serial communication in a separate thread
+def start_serial_communication():
+    setup_serial()
+    # print(bpminfo)
+
+serial_thread = threading.Thread(target=start_serial_communication)
+serial_thread.daemon = True
+serial_thread.start()
+
+if __name__ == '__main__':
+    app.run(debug=True)
+
+
