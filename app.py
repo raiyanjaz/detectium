@@ -4,8 +4,10 @@ from face_monitor.main import process_frame
 import threading
 from heart_monitor.app_utils import setup_serial
 from speech_to_analysis.speech_emotion_analysis import record_audio, detect_emotions
+from flask_cors import CORS
 
 app = Flask(__name__)
+CORS(app)
 
 # Initialize webcam
 camera = cv2.VideoCapture(0)
