@@ -1,0 +1,10 @@
+__pycache__/
+venv/
+mediapipe-env/
+node_modules/
+.next/
+__pycache__/app_utils.cpython-310.pyc
+__pycache__/store_audio.cpython-312.pyc
+__pycache__/text_to_speech.cpython-312.pyc
+__pycache__/store_audio.cpython-312.pyc
+speech_monitoring/delerium.wav
