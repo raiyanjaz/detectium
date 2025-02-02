@@ -34,13 +34,32 @@ export default function Home() {
         </div>
 
         {/* Right Section - Heartbeat Tracking */}
-        <div className="col-md-8 border p-3" style={{ borderColor: '#d3d3d3'}}>
+        <div className="col-md-8 border p-3" style={{ borderColor: '#d3d3d3' }}>
           <h4>Heartbeat Tracking</h4>
-          <div style={{ height: '200px', backgroundColor: '#f8f9fa' }}>
-            {/* Placeholder for Heartbeat Graph */}
-            <p className="text-center">[Heartbeat graph will be here]</p>
+          <div className="d-flex flex-column flex-md-row justify-content-between" style={{ backgroundColor: '#f8f9fa', padding: '20px', borderRadius: '5px' }}>
+            
+            {/* Heart Rate Container */}
+            <div className="text-center border p-3 me-md-3" style={{ flex: 1, borderColor: '#d3d3d3', borderRadius: '5px' }}>
+              <h5>Heart Rate</h5>
+              <p style={{ fontSize: '1.5rem', fontWeight: 'bold' }}>___ bpm</p>
+            </div>
+
+            {/* Average Heart Rate Container */}
+            <div className="text-center border p-3 me-md-3" style={{ flex: 1, borderColor: '#d3d3d3', borderRadius: '5px' }}>
+              <h5>Average Heart Rate</h5>
+              <p style={{ fontSize: '1.5rem', fontWeight: 'bold' }}>___ bpm</p>
+            </div>
+
+            {/* Scanning Status Container */}
+            <div className="text-center border p-3" style={{ flex: 1, borderColor: '#d3d3d3', borderRadius: '5px' }}>
+              <h5>Status</h5>
+              <p style={{ fontSize: '1.5rem', fontWeight: 'bold', color: 'green' }}>Scanning</p>
+              {/* Change 'Scanning' to 'Not Scanning' and update color to red dynamically */}
+            </div>
+
           </div>
         </div>
+
       </div>
 
 
