@@ -1,3 +1,5 @@
 __pycache__/
 venv/
 mediapipe-env/
+node_modules/
+.next/
