@@ -5,7 +5,7 @@ from face_monitor.main import process_frame
 app = Flask(__name__)
 
 # Initialize webcam
-camera = cv2.VideoCapture(2)
+camera = cv2.VideoCapture(0)
 
 @app.route('/')
 def index():
