@@ -3,6 +3,7 @@ import cv2
 from face_monitor.main import process_frame
 import threading
 from heart_monitor.app_utils import setup_serial
+from speech_to_analysis.speech_emotion_analysis import record_audio, detect_emotions
 
 app = Flask(__name__)
 
@@ -57,6 +58,17 @@ def video_feed():
         mimetype='multipart/x-mixed-replace; boundary=frame'
     )
 
+@app.route('/detect_emotion', methods=['GET'])
+def detect_emotion_route():
+    """
+    Flask route to record audio and detect emotions.
+    Returns emotions with confidence above 60%.
+    """
+    audio_data = record_audio()
+    emotions = detect_emotions(audio_data)
+    return jsonify(emotions)
+
+# Start the serial communication in a separate thread
 def start_serial_communication():
     global serial_data
     try:
