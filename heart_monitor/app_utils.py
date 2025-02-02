@@ -3,7 +3,7 @@ import serial
 import time
 from threading import Lock
 
-def setup_serial(serial_data, port="COM13", baudrate=9600):
+def setup_serial(serial_data, port="COM3", baudrate=9600):
     serial_lock = Lock()
     
     try:
