@@ -1,10 +1,11 @@
-from flask import Flask, render_template, Response, jsonify
+from flask import Flask, render_template, Response, jsonify, stream_with_context
 import cv2
 from face_monitor.main import process_frame
 import threading
 from heart_monitor.app_utils import setup_serial
 from speech_to_analysis.speech_emotion_analysis import record_audio, detect_emotions
 from flask_cors import CORS
+import time
 
 app = Flask(__name__)
 CORS(app)
@@ -60,15 +61,23 @@ def video_feed():
         mimetype='multipart/x-mixed-replace; boundary=frame'
     )
 
-@app.route('/detect_emotion', methods=['GET'])
-def detect_emotion_route():
+@app.route('/stream_emotions')
+def stream_emotions():
     """
-    Flask route to record audio and detect emotions.
-    Returns emotions with confidence above 60%.
+    Continuously streams detected emotions to the frontend.
     """
-    audio_data = record_audio()
-    emotions = detect_emotions(audio_data)
-    return jsonify(emotions)
+    def generate_emotions():
+        while True:
+            audio_data = record_audio()
+            emotions = detect_emotions(audio_data)
+
+            # Prepare the data to be sent as an event stream
+            yield f"data: {jsonify(emotions).get_data(as_text=True)}\n\n"
+            
+            time.sleep(2)  # Adjust sleep time as needed for smoother updates
+
+    return Response(stream_with_context(generate_emotions()), mimetype='text/event-stream')
+
 
 # Start the serial communication in a separate thread
 def start_serial_communication():
