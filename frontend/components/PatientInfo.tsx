@@ -6,17 +6,17 @@ export default function PatientInfo() {
       <h4>Patient Info</h4>
       <div className="d-flex flex-column flex-md-row align-items-start">
         <Image
-          src="/anonymous_patient_image.png"
+          src="/lady_patient.png"
           alt="Patient Profile"
           width={150}
           height={150}
           className="img-fluid rounded mb-3 mb-md-0"
         />
         <div className="ms-md-3">
-          <p>Patient Name: ____________</p>
-          <p>Blood Type: ____________</p>
-          <p>Date of Birth: ____________</p>
-          <p>Pronouns: ____________</p>
+          <p>Patient Name: Hectora Ramam </p>
+          <p>Blood Type: A+ </p>
+          <p>Date of Birth: 14-04-1943</p>
+          <p>Pronouns: She/Them </p>
         </div>
       </div>
 
