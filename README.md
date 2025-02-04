@@ -9,7 +9,6 @@ Detecium is a real-time patient monitoring system designed for individuals at ri
 
 ## Table of Contents
 - [Key Features and Tools](#key-features-and-tools)
-- [Tools and Technologies](#tools-and-technologies)
 - [System Architecture](#system-architecture)
 - [Installation](#installation)
 - [Usage](#usage)
@@ -89,3 +88,4 @@ The system is composed of three key modules working together:
 ## Preview
 
 ## License
+This project is licensed under the MIT License. See the [LICENSE](./LICENSE) file for details.
