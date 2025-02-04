@@ -2,7 +2,7 @@
 
 Developed by **Raiyan Aaijaz**, **Ayaan Iqbal**, **Mekhael Thaha**, **Mevan Solanga**, **Arine Peltekian**
 
-This project was developed as part of the **Pearl Sullivan Engineering IDEAs Clinic Health Tech Innovation Challenge**. 
+This project was developed as part of the **Pearl Sullivan Engineering IDEAs Clinic Health Tech Innovation Challenge**, where it was awarded the title of 'Best Executed' for its innovative design and seamless implementation.
 
 ## Summary
 Detecium is a real-time patient monitoring system designed for individuals at risk of delirium episodes. It integrates **facial expression analysis**, **speech pattern tracking**, and **heartbeat monitoring** to assist clinical staff in early detection and intervention.
