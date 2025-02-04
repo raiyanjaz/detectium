@@ -8,33 +8,23 @@ This project was developed as part of the **Pearl Sullivan Engineering IDEAs Cli
 Detecium is a real-time patient monitoring system designed for individuals at risk of delirium episodes. It integrates **facial expression analysis**, **speech pattern tracking**, and **heartbeat monitoring** to assist clinical staff in early detection and intervention.
 
 ## Table of Contents
-- [Features](#features)
+- [Key Features and Tools](#key-features-and-tools)
 - [Tools and Technologies](#tools-and-technologies)
 - [System Architecture](#system-architecture)
 - [Installation](#installation)
 - [Usage](#usage)
-- [Contributors](#contributors)
+- [Preview](#preview)
 - [License](#license)
 
-## Features
-- **Facial Expression Analysis:** Real-time monitoring of facial expressions to detect signs of emotional distress using **DeepFace** and **MediaPipe**.  
-- **Speech Pattern Analysis:** Detects and tracks speech emotions (e.g., aggression, anxiety) through **speech-to-emotion models**.  
-- **Heartbeat Monitoring:** Tracks heart rate and alerts staff to anomalies using an **Arduino-based sensor**.  
-- **Web Dashboard:** Interactive interface built with **Next.js** and **Bootstrap** to visualize patient status in real time.  
-- **Alerts System:** Notifies medical staff of dangerous or abnormal behaviors, such as mentions of violence or signs of extreme stress.
+## Key Features and Tools
+- Detectium leverages a variety of cutting-edge technologies to deliver real-time patient monitoring:
 
-## Tools and Technologies
-| Tool/Technology   | Purpose                                      |
-|------------------|----------------------------------------------|
-| **Flask**         | Backend server for video streaming and API routes. |
-| **Next.js**       | Frontend framework for the web dashboard.    |
-| **Bootstrap**     | CSS framework for responsive design.         |
-| **OpenCV**        | Video capture and frame processing.          |
-| **MediaPipe**     | Facial landmark detection and pose estimation. |
-| **DeepFace**      | Emotion detection from facial expressions.   |
-| **PyTorch**       | Speech emotion analysis using Hugging Face’s models. |
-| **Arduino**       | Heartbeat monitoring and serial data collection. |
-| **Hugging Face Transformers** | Speech-to-emotion classification.  |
+| Feature | Description | Technology/Tools |
+|---------|-------------|------------------|
+| **Facial Expression Analysis** | Real-time monitoring of facial expressions to detect signs of emotional distress. | DeepFace, MediaPipe, OpenCV |
+| **Speech Pattern Analysis** | Detects and classifies speech emotions such as aggression, anxiety, and calmness. | PyTorch, Hugging Face Transformers |
+| **Heartbeat Monitoring** | Tracks heart rate and detects anomalies using a heartbeat sensor. | Arduino, Serial Communication |
+| **Web Dashboard** | Interactive interface displaying live data, including video feed, heart rate, and alerts. | TypeScript , Next.js |
 
 ## System Architecture
 The system is composed of three key modules working together:  
