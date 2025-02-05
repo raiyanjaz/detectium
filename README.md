@@ -21,9 +21,9 @@ Detecium is a real-time patient monitoring system designed for individuals at ri
 | Feature | Description | Technology/Tools |
 |---------|-------------|------------------|
 | **Facial Expression Analysis** | Real-time monitoring of facial expressions to detect signs of emotional distress. | DeepFace, MediaPipe, OpenCV |
-| **Speech Pattern Analysis** | Detects and classifies speech emotions such as aggression, anxiety, and calmness. | PyTorch, Hugging Face Transformers |
+| **Speech Pattern Analysis** | Detects and classifies speech emotions such as aggression, anxiety, and calmness. The patient's conversation is summarized and scanned for delirious dialogue. | PyTorch, Hugging Face Transformers (Wav2Vec2 and Speech2Text) |
 | **Heartbeat Monitoring** | Tracks heart rate and detects anomalies using a heartbeat sensor. | Arduino, Serial Communication |
-| **Web Dashboard** | Interactive interface displaying live data, including video feed, heart rate, and alerts. | TypeScript , Next.js |
+| **Web Dashboard** | Interactive interface displaying live data, including video feed, heart rate, and alerts. | TypeScript, Next.js |
 
 ## System Architecture
 The system is composed of three key modules working together:  
